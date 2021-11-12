@@ -1,54 +1,54 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Categories on TylerW</title>
-    <link>https://tylerw.xyz/categories/</link>
-    <description>Recent content in Categories on TylerW</description>
+    <title>Categories on TylerW&#39;s Blog</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on TylerW&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>zh-cn</language>
-    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://tylerw.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 09 Sep 2020 00:00:00 +0000</lastBuildDate><atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Test</title>
-      <link>https://tylerw.xyz/categories/test/</link>
+      <link>/categories/test/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tylerw.xyz/categories/test/</guid>
+      <guid>/categories/test/</guid>
       <description></description>
     </item>
     
     <item>
       <title>测试</title>
-      <link>https://tylerw.xyz/categories/%E6%B5%8B%E8%AF%95/</link>
+      <link>/categories/%E6%B5%8B%E8%AF%95/</link>
       <pubDate>Wed, 09 Sep 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://tylerw.xyz/categories/%E6%B5%8B%E8%AF%95/</guid>
+      <guid>/categories/%E6%B5%8B%E8%AF%95/</guid>
       <description></description>
     </item>
     
     <item>
       <title>syntax</title>
-      <link>https://tylerw.xyz/categories/syntax/</link>
+      <link>/categories/syntax/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://tylerw.xyz/categories/syntax/</guid>
+      <guid>/categories/syntax/</guid>
       <description></description>
     </item>
     
     <item>
       <title>themes</title>
-      <link>https://tylerw.xyz/categories/themes/</link>
+      <link>/categories/themes/</link>
       <pubDate>Mon, 11 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://tylerw.xyz/categories/themes/</guid>
+      <guid>/categories/themes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Test with whitespaces</title>
-      <link>https://tylerw.xyz/categories/test-with-whitespaces/</link>
+      <link>/categories/test-with-whitespaces/</link>
       <pubDate>Sat, 09 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://tylerw.xyz/categories/test-with-whitespaces/</guid>
+      <guid>/categories/test-with-whitespaces/</guid>
       <description></description>
     </item>
     
