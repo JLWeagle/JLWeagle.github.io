@@ -26,17 +26,15 @@
     <loc>/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
     <lastmod>2021-11-13T18:09:52+08:00</lastmod>
   </url><url>
-    <loc>/archives/</loc>
-    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>/page/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>/about/</loc>
+    <loc>/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>/%E5%85%B3%E4%BA%8E/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>/search/</loc>
-  </url><url>
-    <loc>/categories/test/</loc>
   </url>
 </urlset>

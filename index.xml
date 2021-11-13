@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
     <channel>
-        <title>TylerW&#39;s Blog</title>
+        <title>TylerW的部落格</title>
         <link>/</link>
-        <description>Recent content on TylerW&#39;s Blog</description>
+        <description>Recent content on TylerW的部落格</description>
         <generator>Hugo -- gohugo.io</generator>
         <language>zh-CN</language>
         <lastBuildDate>Sat, 13 Nov 2021 18:09:52 +0800</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" /><item>
@@ -13,7 +13,7 @@
         
         <guid>/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/</guid>
         <description>&lt;img src="/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/helena-hertz-wWZzXlDpMog-unsplash.jpg" alt="Featured image of post Ubuntu 21.04 搭建TeamSpeak服务端" /&gt;&lt;h2 id=&#34;前言&#34;&gt;前言&lt;/h2&gt;
-&lt;p&gt;TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。&lt;/p&gt;
+&lt;p&gt;TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。&lt;/p&gt;
 &lt;h2 id=&#34;准备&#34;&gt;准备&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;一个装有Ubuntu 21.04系统的VPS&lt;/li&gt;
@@ -21,7 +21,7 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;搭建步骤&#34;&gt;搭建步骤&lt;/h2&gt;
 &lt;h3 id=&#34;登录服务器并更新软件包&#34;&gt;登录服务器并更新软件包&lt;/h3&gt;
-&lt;p&gt;首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：&lt;/p&gt;
+&lt;p&gt;首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ssh root@服务器IP地址
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;检查并更新已安装的软件包：&lt;/p&gt;
 &lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;apt-get update -y

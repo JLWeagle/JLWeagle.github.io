@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ubuntu on TylerW&#39;s Blog</title>
+    <title>Ubuntu on TylerW的部落格</title>
     <link>/tags/ubuntu/</link>
-    <description>Recent content in Ubuntu on TylerW&#39;s Blog</description>
+    <description>Recent content in Ubuntu on TylerW的部落格</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>zh-CN</language>
     <lastBuildDate>Sat, 13 Nov 2021 18:09:52 +0800</lastBuildDate><atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
@@ -13,8 +13,8 @@
       <pubDate>Sat, 13 Nov 2021 18:09:52 +0800</pubDate>
       
       <guid>/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/</guid>
-      <description>前言 TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。
-准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：
+      <description>前言 TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。
+准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：
 ssh root@服务器IP地址检查并更新已安装的软件包：
 apt-get update -yapt-get upgrade -y安装TeamSpeak服务端 添加一个单独的用户来运行TeamSpeak服务端：
 adduser --disabled-login teamspeak添加用户时的信息可以一路回车。创建好后，切换到TeamSpeak用户，下载最新的TeamSpeak服务端文件：

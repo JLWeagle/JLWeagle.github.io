@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
     <head><meta charset='utf-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前言 TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。
-准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content='前言 TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。
+准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：
 ssh root@服务器IP地址检查并更新已安装的软件包：
 apt-get update -yapt-get upgrade -y安装TeamSpeak服务端 添加一个单独的用户来运行TeamSpeak服务端：
 adduser --disabled-login teamspeak添加用户时的信息可以一路回车。创建好后，切换到TeamSpeak用户，下载最新的TeamSpeak服务端文件：
@@ -16,8 +16,8 @@ ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak�
 <link rel='canonical' href='/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/'>
 
 <link rel="stylesheet" href="/scss/style.min.css"><meta property='og:title' content='Ubuntu 21.04 搭建TeamSpeak服务端'>
-<meta property='og:description' content='前言 TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。
-准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：
+<meta property='og:description' content='前言 TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。
+准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：
 ssh root@服务器IP地址检查并更新已安装的软件包：
 apt-get update -yapt-get upgrade -y安装TeamSpeak服务端 添加一个单独的用户来运行TeamSpeak服务端：
 adduser --disabled-login teamspeak添加用户时的信息可以一路回车。创建好后，切换到TeamSpeak用户，下载最新的TeamSpeak服务端文件：
@@ -28,12 +28,12 @@ vim /lib/systemd/system/ts3server.service复制以下内容并保存：
 [Unit]Description=Teamspeak ServiceWants=network.target[Service]WorkingDirectory=/home/teamspeakUser=teamspeakExecStart=/home/teamspeak/ts3server_minimal_runscript.shExecStop=/home/teamspeak/ts3server_startscript.sh stopExecReload=/home/teamspeak/ts3server_startscript.sh restartRestart=alwaysRestartSec=15[Install]WantedBy=multi-user.target防火墙放行语音和文件传输的端口，重启防火墙：
 ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak服务端并将其设置为开机自启：'>
 <meta property='og:url' content='/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/'>
-<meta property='og:site_name' content='TylerW&#39;s Blog'>
+<meta property='og:site_name' content='TylerW的部落格'>
 <meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:tag' content='Ubuntu' /><meta property='article:tag' content='TeamSpeak' /><meta property='article:published_time' content='2021-11-13T18:09:52&#43;08:00'/><meta property='article:modified_time' content='2021-11-13T18:09:52&#43;08:00'/><meta property='og:image' content='/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
 <meta name="twitter:site" content="@xCombatEagle">
     <meta name="twitter:creator" content="@xCombatEagle"><meta name="twitter:title" content="Ubuntu 21.04 搭建TeamSpeak服务端">
-<meta name="twitter:description" content="前言 TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。
-准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：
+<meta name="twitter:description" content="前言 TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。
+准备  一个装有Ubuntu 21.04系统的VPS VPS的管理员访问权限  搭建步骤 登录服务器并更新软件包 首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：
 ssh root@服务器IP地址检查并更新已安装的软件包：
 apt-get update -yapt-get upgrade -y安装TeamSpeak服务端 添加一个单独的用户来运行TeamSpeak服务端：
 adduser --disabled-login teamspeak添加用户时的信息可以一路回车。创建好后，切换到TeamSpeak用户，下载最新的TeamSpeak服务端文件：
@@ -44,6 +44,17 @@ vim /lib/systemd/system/ts3server.service复制以下内容并保存：
 [Unit]Description=Teamspeak ServiceWants=network.target[Service]WorkingDirectory=/home/teamspeakUser=teamspeakExecStart=/home/teamspeak/ts3server_minimal_runscript.shExecStop=/home/teamspeak/ts3server_startscript.sh stopExecReload=/home/teamspeak/ts3server_startscript.sh restartRestart=alwaysRestartSec=15[Install]WantedBy=multi-user.target防火墙放行语音和文件传输的端口，重启防火墙：
 ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak服务端并将其设置为开机自启："><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-82B93984T7"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-82B93984T7', { 'anonymize_ip': false });
+}
+</script>
+
     </head>
     <body class="
     article-page has-toc
@@ -161,7 +172,7 @@ ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak�
 
     <section class="article-content">
     <h2 id="前言">前言</h2>
-<p>TeamSpeak以其游戏语言聊天功能闻名，相比与主流的语音软件，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要舒适一些。</p>
+<p>TeamSpeak以其游戏语音聊天功能闻名，与主流的语音软件相比，它拥有高语音质量、低延时，更少的带宽使用和提供游戏内叠加等优点。使用起来也比其它“语音电话”的方式要简洁、舒适一些。</p>
 <h2 id="准备">准备</h2>
 <ul>
 <li>一个装有Ubuntu 21.04系统的VPS</li>
@@ -169,7 +180,7 @@ ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak�
 </ul>
 <h2 id="搭建步骤">搭建步骤</h2>
 <h3 id="登录服务器并更新软件包">登录服务器并更新软件包</h3>
-<p>首先，使用SSH登录VPS，Windows下可以使用PuTTY等应用连接SSH：</p>
+<p>首先，使用SSH登录VPS，Windows下可以使用PuTTY等软件连接SSH：</p>
 <pre tabindex="0"><code>ssh root@服务器IP地址
 </code></pre><p>检查并更新已安装的软件包：</p>
 <pre tabindex="0"><code>apt-get update -y
@@ -330,7 +341,7 @@ systemctl enable ts3server
         
             2020 - 
         
-        2021 TylerW&#39;s Blog
+        2021 TylerW的部落格
     </section>
     
     <section class="powerby">
