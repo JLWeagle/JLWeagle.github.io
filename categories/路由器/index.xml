@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>路由器 on TylerW的部落格</title>
+    <link>/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/</link>
+    <description>Recent content in 路由器 on TylerW的部落格</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-CN</language>
+    <lastBuildDate>Mon, 15 Nov 2021 20:01:59 +0800</lastBuildDate><atom:link href="/categories/%E8%B7%AF%E7%94%B1%E5%99%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>校园网配置IPv6 NAT</title>
+      <link>/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/</link>
+      <pubDate>Mon, 15 Nov 2021 20:01:59 +0800</pubDate>
+      
+      <guid>/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/</guid>
+      <description>前言 前一阵子给软路由折腾IPv6全局代理，配合AP实现所有连接的设备不走校园网计费流量。但是连接的每个终端无法直接访问纯IPv6网站了，原因是软路由没有给LAN口分配IPv6地址，于是开始折腾尝试解决这个问题。
+准备  网络：校园网IPv4/IPv6双栈 硬件：软路由FriendlyElec NanoPi R2S 固件：OpenWrt R21.8.6 / LuCI Master  LAN口获取IPv6地址的三种方式  IPv6穿透：将WAN口与LAN口桥接，路由器相当于交换机，连接的设备能够直接通过DHCPv6服务获取原生IPv6地址。但考虑到要使用Passwall等插件进行全局代理达到免流的效果，路由器自身需能够访问IPv6服务器，IPv6穿透这个方式行不通。 IPv6中继：中继模式可以让路由器自身与LAN口连接的终端都获取到原生的IPv6地址，使用OpenWrt中的odhcpd可以实现。通过对/etc/config/dhcp配置文件进行修改，WAN口和LAN口连接的设备均可以获取到20开头的公网IPv6地址。但是在我这边的环境配置后，LAN口连接的设备无论是DHCPv6还是SLAAC获取到的IP，都没有访问公网的权限。个人猜测是校园网认证的原因，因此只能使用第三种方式。 IPv6 NAT：网络地址转换(NAT, Network Address Translation)是为了解决IPv4地址短缺所提出的技术，普遍应用在有多台主机但只通过一个公网IP地址访问互联网的私有网络中。理论上IPv6拥有2^128 = 340,282,366,920,938,463,463,374,607,431,768,211,456个地址，不会存在短缺的情况，按理说也就并不需要使用NAT。但是仍然存在IPv6 NAT这种接入方式。这种方式配置简单，缺点是连接的设备没有公网IPv6地址，不能直接被外部设备访问。  IPv6 NAT配置步骤 WAN口设置 IPv6 ULA前缀设置 LAN口设置 防火墙与路由设置 </description>
+    </item>
+    
+  </channel>
+</rss>

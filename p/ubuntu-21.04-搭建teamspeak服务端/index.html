@@ -44,6 +44,8 @@ vim /lib/systemd/system/ts3server.service复制以下内容并保存：
 [Unit]Description=Teamspeak ServiceWants=network.target[Service]WorkingDirectory=/home/teamspeakUser=teamspeakExecStart=/home/teamspeak/ts3server_minimal_runscript.shExecStop=/home/teamspeak/ts3server_startscript.sh stopExecReload=/home/teamspeak/ts3server_startscript.sh restartRestart=alwaysRestartSec=15[Install]WantedBy=multi-user.target防火墙放行语音和文件传输的端口，重启防火墙：
 ufw allow 9987ufw allow 30033ufw reload重启Systemd服务，运行TeamSpeak服务端并将其设置为开机自启："><meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:image" content='/p/ubuntu-21.04-%E6%90%AD%E5%BB%BAteamspeak%E6%9C%8D%E5%8A%A1%E7%AB%AF/helena-hertz-wWZzXlDpMog-unsplash.jpg' />
+    <link rel="shortcut icon" href="icons/favicon.ico" />
+
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-82B93984T7"></script>
 <script>
 var doNotTrack = false;
@@ -122,6 +124,10 @@ if (!doNotTrack) {
         
             <a href="/categories/%E6%9C%8D%E5%8A%A1%E5%99%A8/" >
                 服务器
+            </a>
+        
+            <a href="/categories/%E6%B8%B8%E6%88%8F/" >
+                游戏
             </a>
         
     </header>
