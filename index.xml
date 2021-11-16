@@ -28,9 +28,157 @@
 &lt;/ul&gt;
 &lt;h2 id=&#34;ipv6-nat配置步骤&#34;&gt;IPv6 NAT配置步骤&lt;/h2&gt;
 &lt;h3 id=&#34;wan口设置&#34;&gt;WAN口设置&lt;/h3&gt;
+&lt;p&gt;登录OpenWrt后台，如果&lt;code&gt;网络 - 接口&lt;/code&gt;中已经有&lt;code&gt;WAN6&lt;/code&gt;可以跳过这一步；没有的话添加新接口，基本设置如下表：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;协议&lt;/th&gt;
+&lt;th&gt;DHCPv6客户端&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;请求IPv6地址&lt;/td&gt;
+&lt;td&gt;try&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;请求指定长度的IPv6前缀&lt;/td&gt;
+&lt;td&gt;自动&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;高级设置中勾选&lt;code&gt;使用内置的IPv6管理&lt;/code&gt;，物理设置中选择与&lt;code&gt;WAN&lt;/code&gt;口相同的以太适配器，防火墙设置中选择区域&lt;code&gt;WAN&lt;/code&gt;，设置好后保存&amp;amp;应用。&lt;br&gt;
+&lt;code&gt;WAN6&lt;/code&gt;接口连接成功后，可以看到获取到了公网的IPv6地址：
+&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 327; 
+			flex-basis: 786px&#34;
+	&gt;
+	&lt;a href=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/wan6.png&#34; data-size=&#34;544x166&#34;&gt;
+		&lt;img src=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/wan6.png&#34;
+			width=&#34;544&#34;
+			height=&#34;166&#34;
+			srcset=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/wan6_hu07819e6cc0e1a257ea07bc1a8069a12e_12613_480x0_resize_box_3.png 480w, /p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/wan6_hu07819e6cc0e1a257ea07bc1a8069a12e_12613_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;WAN6接口信息&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;WAN6接口信息&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&#34;ipv6-ula前缀设置&#34;&gt;IPv6 ULA前缀设置&lt;/h3&gt;
+&lt;p&gt;唯一本地地址(ULA, Unique Local Address)是IPv6地址在&lt;code&gt;fc00::/7&lt;/code&gt;范围内的网段。OpenWrt默认的ULA设置的是&lt;code&gt;fd00::/8&lt;/code&gt;内的地址，在&lt;code&gt;fd00::/8&lt;/code&gt;范围内的地址和IPv4私有网段地址拥有类似的特性：不能保证它们在全球范围内是唯一的，只能在私有网络内进行路由，无法路由到外网。&lt;br&gt;
+在&lt;code&gt;网络 - 接口&lt;/code&gt;中的全局网络选项，将&lt;code&gt;IPv6 ULA前缀&lt;/code&gt;的第一位由&lt;code&gt;f&lt;/code&gt;改为&lt;code&gt;d&lt;/code&gt;，例如我的前缀为&lt;code&gt;dd92:770a:ba04::/48&lt;/code&gt;，保存&amp;amp;应用后应该可以看到&lt;code&gt;LAN&lt;/code&gt;口信息中的IPv6地址：
+&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 223; 
+			flex-basis: 537px&#34;
+	&gt;
+	&lt;a href=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/lan.png&#34; data-size=&#34;441x197&#34;&gt;
+		&lt;img src=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/lan.png&#34;
+			width=&#34;441&#34;
+			height=&#34;197&#34;
+			srcset=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/lan_hub757eb58003a77183f74aecca2d5b74a_14137_480x0_resize_box_3.png 480w, /p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/lan_hub757eb58003a77183f74aecca2d5b74a_14137_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;LAN接口信息&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;LAN接口信息&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
 &lt;h3 id=&#34;lan口设置&#34;&gt;LAN口设置&lt;/h3&gt;
+&lt;p&gt;接下来，在&lt;code&gt;网络 - 接口&lt;/code&gt;中修改&lt;code&gt;LAN&lt;/code&gt;口配置，在一般配置 - 高级设置中勾选&lt;code&gt;使用内置的IPv6管理&lt;/code&gt;，DHCP服务器 - IPv6设置如下：&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;路由通告服务&lt;/th&gt;
+&lt;th&gt;服务器模式&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;DHCPv6服务&lt;/td&gt;
+&lt;td&gt;服务器模式&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;NDP代理&lt;/td&gt;
+&lt;td&gt;已禁用&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;DHCPv6模式&lt;/td&gt;
+&lt;td&gt;无状态的+有状态的&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;总是通告默认路由&lt;/td&gt;
+&lt;td&gt;勾选&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;保存&amp;amp;应用一段时间后，连接的设备可以获取到IPv6地址了。&lt;/p&gt;
 &lt;h3 id=&#34;防火墙与路由设置&#34;&gt;防火墙与路由设置&lt;/h3&gt;
+&lt;p&gt;打开&lt;code&gt;网络 - 防火墙 - 自定义规则&lt;/code&gt;，添加如下一条命令来设置IPv6 NAT转发：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;ip6tables -t nat -A POSTROUTING -o eth1 -j MASQUERADE
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中，&lt;code&gt;eth1&lt;/code&gt;是&lt;code&gt;WAN&lt;/code&gt;的物理接口。设置好后需要点击重启防火墙。&lt;br&gt;
+接下来我们需要为路由器添加默认网关，先在&lt;code&gt;网络 - 诊断&lt;/code&gt;中使用Traceroute测一下，记录第一跳的地址，例如我这里是&lt;code&gt;2001:da8:a800:2127::1&lt;/code&gt;。&lt;br&gt;
+然后我们使用SSH连接到路由器，在终端中输入如下指令：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;route -A inet6 add default gw 2001:da8:a800:2127::1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;其中，最后的地址要替换为刚才记录的第一跳地址。现在再查看当前的路由，可以看到如下记录：
+&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 1597; 
+			flex-basis: 3833px&#34;
+	&gt;
+	&lt;a href=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/route.png&#34; data-size=&#34;1134x71&#34;&gt;
+		&lt;img src=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/route.png&#34;
+			width=&#34;1134&#34;
+			height=&#34;71&#34;
+			srcset=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/route_hu73dbc6221c84b05ed585fd06816bffba_56303_480x0_resize_box_3.png 480w, /p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/route_hu73dbc6221c84b05ed585fd06816bffba_56303_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;默认路由&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;默认路由&lt;/figcaption&gt;
+	
+&lt;/figure&gt; 
+重启网络服务，这时我们的设备应该是可以直接访问IPv6网站了。&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;/etc/init.d/network restart
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;路由器每次重启都会重置路由，因此在路由器每一次启动时我们都需要添加上面路由指令，我们添加如下脚本将其自动化：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;vim /etc/hotplug.d/iface/90-ipv6
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;添加以下内容，其中的地址要替换为自己的默认网关地址：&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;#!/bin/sh
+[ &amp;quot;$ACTION&amp;quot; = ifup ] || exit 0
+route -A inet6 add default gw 2001:da8:a800:2127::1
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;保存并给文件744可执行权限&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;chmod +x /etc/hotplug.d/iface/90-ipv6
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id=&#34;ipv6测试&#34;&gt;IPv6测试&lt;/h2&gt;
+&lt;p&gt;看能不能访问六维空间，蒲公英PT之类的网站，或者访问https://test-ipv6.com/
+&lt;figure 
+	
+		class=&#34;gallery-image&#34; 
+		style=&#34;
+			flex-grow: 203; 
+			flex-basis: 487px&#34;
+	&gt;
+	&lt;a href=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/ipv6_test.png&#34; data-size=&#34;1012x498&#34;&gt;
+		&lt;img src=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/ipv6_test.png&#34;
+			width=&#34;1012&#34;
+			height=&#34;498&#34;
+			srcset=&#34;/p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/ipv6_test_hu4d048d3dafbd17d94f863417d7c81219_66543_480x0_resize_box_3.png 480w, /p/%E6%A0%A1%E5%9B%AD%E7%BD%91%E9%85%8D%E7%BD%AEipv6-nat/ipv6_test_hu4d048d3dafbd17d94f863417d7c81219_66543_1024x0_resize_box_3.png 1024w&#34;
+			loading=&#34;lazy&#34;
+			alt=&#34;IPv6&#34;&gt;
+	&lt;/a&gt;
+	
+	&lt;figcaption&gt;IPv6&lt;/figcaption&gt;
+	
+&lt;/figure&gt;&lt;/p&gt;
+&lt;h2 id=&#34;总结&#34;&gt;总结&lt;/h2&gt;
+&lt;p&gt;经过一番折腾，网络内的每一个设备终于可以直接访问IPv6网站了，也可以用宿舍电脑通过IPv6地址直接远程教研室电脑了，反过来不行。端口映射留着下次再折腾吧。(￣Д￣&lt;/p&gt;
 </description>
         </item>
         <item>
